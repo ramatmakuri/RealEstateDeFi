@@ -4,6 +4,7 @@
 
 # RealEstateDeFi
 Decentralized Real Estate Financing
+
 LAUNCH APP: 
 
 ---
@@ -63,8 +64,16 @@ Kevin Lee (Instructor)
 ## Technologies
 
 Solidity 5.5.0 was used to write the smart contracts.
-A Python 3.9.7 (ipykernal) was used to write the streamlit app.
+
+A Python 3.9.7 (ipykernal) was used to write the Streamlit app.
+
 The project is built on the ERC 721 blockchain.
+
+![solidity-logo](https://user-images.githubusercontent.com/95719899/171759427-9b6de3c5-4ca4-42a0-bd77-b92a0841688a.jpg)
+![python-logo-master-v3-TM-flattened](https://user-images.githubusercontent.com/95719899/171759441-6f147919-7479-42b6-9d78-90afeffdb2de.png)
+![Erc721](https://user-images.githubusercontent.com/95719899/171759454-8d416734-2327-481f-8cac-e9612e9fa9a0.png)
+![download](https://user-images.githubusercontent.com/95719899/171759468-389548b9-8c10-41e0-b2a3-320fe200b996.png)
+![streamlit_logo](https://user-images.githubusercontent.com/95719899/171759480-2a932571-9302-4fb5-8e03-66bba525be1d.png)
 
 
 
@@ -73,11 +82,11 @@ The project is built on the ERC 721 blockchain.
 
 ## License
 
-MIT
+MIT License
 
-This is an open-source project under the MIT license which is free for use for everyone.
+This is a truly open-source project under the MIT license which is free for use for everyone.
 
 We ask that you please credit the team with the following IEEE citation:
 
-> R. Atmakuri, S. Azimi, R. Brown, L. Rupp, K. Tung, “RealEstateDeFi,” University of California Berkeley Extension Fintech Bootcamp, Berkeley, California, USA, Fintech Bootcamp Project 3, 2022. https://github.com/lariannrupp/Machine_Learning_Algorithmic_Trading_Bot (accessed month day, year).
+> R. Atmakuri, S. Azimi, R. Brown, L. Rupp, K. Tung, “RealEstateDeFi,” University of California Berkeley Extension Fintech Bootcamp, Berkeley, California, USA, Fintech Bootcamp Project 3, 2022. https://github.com/lariannrupp/RealEstateDefi (accessed month day, year).
 
