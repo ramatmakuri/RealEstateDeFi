@@ -36,6 +36,12 @@ and type `streamlit run streamlit.py`. This will launch a web browser with a loc
 5. User interface in Streamlit
 
 ---
+
+## Discussion
+
+Blockchains are positioned to be the next technological advancement in real estate investment. The potential for digitizing real estate assests means that ownership of these assets can be fracionalized through ownership of tokens. 
+
+---
 ## Contributors:
 
 ### Development Team
