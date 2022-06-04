@@ -7,7 +7,8 @@ import streamlit as st
 
 from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json
 
-load_dotenv()
+file_path = Path("./SAMPLE.env")
+load_dotenv(file_path)
 
 # Define and connect a new Web3 provider
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
@@ -23,7 +24,7 @@ w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 def load_contract():
 
     # Load the contract ABI
-    with open(Path('./contracts/compiled/artregistry_abi.json')) as f:
+    with open(Path('./contracts/compiled/realEstateDefiNFT_abi.json')) as f:
         contract_abi = json.load(f)
 
     # Set the contract address (this is the address of the deployed contract)
@@ -45,14 +46,13 @@ contract = load_contract()
 # Helper functions to pin files and json to Pinata
 ################################################################################
 
-
-def pin_artwork(artwork_name, artwork_file):
+def pin_realEstate(realestate_name, realestate_file):
     # Pin the file to IPFS with Pinata
-    ipfs_file_hash = pin_file_to_ipfs(artwork_file.getvalue())
+    ipfs_file_hash = pin_file_to_ipfs(realestate_file.getvalue())
 
-    # Build a token metadata file for the artwork
+    # Build a token metadata file for the realestate
     token_json = {
-        "name": artwork_name,
+        "name": realestate_name,
         "image": ipfs_file_hash
     }
     json_data = convert_data_to_json(token_json)
@@ -69,44 +69,44 @@ def pin_appraisal_report(report_content):
     return report_ipfs_hash
 
 
-st.title("Art Registry Appraisal System")
+st.title("Real Estate Appraisal System")
 st.write("Choose an account to get started")
 accounts = w3.eth.accounts
 address = st.selectbox("Select Account", options=accounts)
 st.markdown("---")
 
 ################################################################################
-# Register New Artwork
+# Register New RealEstate
 ################################################################################
-st.markdown("## Register New Artwork")
-artwork_name = st.text_input("Enter the name of the artwork")
-artist_name = st.text_input("Enter the artist name")
-initial_appraisal_value = st.text_input("Enter the initial appraisal amount")
-file = st.file_uploader("Upload Artwork", type=["jpg", "jpeg", "png"])
-if st.button("Register Artwork"):
-    artwork_ipfs_hash = pin_artwork(artwork_name, file)
-    artwork_uri = f"ipfs://{artwork_ipfs_hash}"
-    tx_hash = contract.functions.registerArtwork(
+st.markdown("## Register New RealEstate")
+realEstate_name = st.text_input("Enter the name of the RealEstate")
+propertyAddress = st.text_input("Enter the property address")
+appraisalValue = st.text_input("Enter the initial appraisal amount")
+file = st.file_uploader("Upload RealEstate", type=["jpg", "jpeg", "png", "pdf"])
+if st.button("Register RealEstate"):
+    realEstate_ipfs_hash = pin_realEstate(realEstate_name, file)
+    realEstate_uri = f"ipfs/{realEstate_ipfs_hash}"
+    tx_hash = contract.functions.registerRealEstate(
         address,
-        artwork_name,
-        artist_name,
-        int(initial_appraisal_value),
-        artwork_uri
+        realEstate_name,
+        propertyAddress,
+        int(appraisalValue),
+        realEstate_uri
     ).transact({'from': address, 'gas': 1000000})
     receipt = w3.eth.waitForTransactionReceipt(tx_hash)
     st.write("Transaction receipt mined:")
     st.write(dict(receipt))
     st.write("You can view the pinned metadata file with the following IPFS Gateway Link")
-    st.markdown(f"[Artwork IPFS Gateway Link](https://ipfs.io/ipfs/{artwork_ipfs_hash})")
+    st.markdown(f"[RealEstate IPFS Gateway Link](https:gateway.pinata.cloud/{realEstate_uri})")
 st.markdown("---")
 
 
 ################################################################################
 # Appraise Art
 ################################################################################
-st.markdown("## Appraise Artwork")
+st.markdown("## Appraise realEstate")
 tokens = contract.functions.totalSupply().call()
-token_id = st.selectbox("Choose an Art Token ID", list(range(tokens)))
+token_id = st.selectbox("Choose an realEstate Token ID", list(range(tokens)))
 new_appraisal_value = st.text_input("Enter the new appraisal amount")
 appraisal_report_content = st.text_area("Enter details for the Appraisal Report")
 if st.button("Appraise Artwork"):
@@ -129,7 +129,7 @@ st.markdown("---")
 # Get Appraisals
 ################################################################################
 st.markdown("## Get the appraisal report history")
-art_token_id = st.number_input("Artwork ID", value=0, step=1)
+art_token_id = st.number_input("realEstate ID", value=0, step=1)
 if st.button("Get Appraisal Reports"):
     appraisal_filter = contract.events.Appraisal.createFilter(
         fromBlock=0, argument_filters={"tokenId": art_token_id}

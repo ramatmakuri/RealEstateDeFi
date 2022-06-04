@@ -1,25 +1,24 @@
-pragma solidity ^0.5.0;
+pragma solidity >=0.5.5 < 0.6.0;
 
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC721/ERC721Full.sol";
 
-contract ArtRegistry is ERC721Full {
-    constructor() public ERC721Full("ArtRegistryToken", "ART") {}
+contract RegisterRE is ERC721Full {
+    constructor() public ERC721Full("RegisterREAL", "REAL") {}
 
-    struct Artwork {
+    struct realST {
         string name;
-        string artist;
+        string propertyAddress;
         uint256 appraisalValue;
     }
-
-    mapping(uint256 => Artwork) public artCollection;
+    mapping(uint256 => realST) public realMapp;
 
     event Appraisal(uint256 tokenId, uint256 appraisalValue, string reportURI);
 
-    function registerArtwork(
+    function registerRealEstate(
         address owner,
         string memory name,
-        string memory artist,
-        uint256 initialAppraisalValue,
+        string memory propertyAddress,
+        uint256 appraisalValue,
         string memory tokenURI
     ) public returns (uint256) {
         uint256 tokenId = totalSupply();
@@ -27,20 +26,20 @@ contract ArtRegistry is ERC721Full {
         _mint(owner, tokenId);
         _setTokenURI(tokenId, tokenURI);
 
-        artCollection[tokenId] = Artwork(name, artist, initialAppraisalValue);
-
+        realMapp[tokenId] = realST(name, propertyAddress, appraisalValue);
         return tokenId;
     }
-
     function newAppraisal(
         uint256 tokenId,
         uint256 newAppraisalValue,
         string memory reportURI
     ) public returns (uint256) {
-        artCollection[tokenId].appraisalValue = newAppraisalValue;
+        realMapp[tokenId].appraisalValue = newAppraisalValue;
 
         emit Appraisal(tokenId, newAppraisalValue, reportURI);
 
-        return artCollection[tokenId].appraisalValue;
+        return realMapp[tokenId].appraisalValue;
     }
 }
+
+
