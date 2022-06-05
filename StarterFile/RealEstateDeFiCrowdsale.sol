@@ -1,7 +1,7 @@
 pragma solidity >=0.5.0 <0.6.0;
 
 import "./RealEstateDeFiToken.sol";
-import "../contracts/realEstateDefiNFT.sol";
+import "./RealEstateDeFiCrowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/Crowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/validation/CappedCrowdsale.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/validation/TimedCrowdsale.sol";
@@ -35,6 +35,7 @@ contract RealEstateCrowdsale is Crowdsale, MintedCrowdsale, CappedCrowdsale, Tim
 
 }
 
+
 contract RealEstateCrowdsaleDeployer {
     // Create an `address public` variable called `realestate_token_address`.
     // YOUR CODE HERE!
@@ -42,9 +43,7 @@ contract RealEstateCrowdsaleDeployer {
     // Create an `address public` variable called `realestate_crowdsale_address`.
     // YOUR CODE HERE!
     address public realestate_crowdsale_address;
-    // Create an `address public` variable called `realestate_crowdsale_address`.
-    // YOUR CODE HERE!
-    address public realestate_Defi_NFT_address;
+
 
     // Add the constructor.
     constructor(
@@ -83,13 +82,9 @@ contract RealEstateCrowdsaleDeployer {
         // Set the `KaseiCoinCrowdsale` contract as a minter
         // YOUR CODE HERE!
         token.addMinter(realestate_crowdsale_address);
-        // Have the `KaseiCoinCrowdsaleDeployer` renounce its minter role.
+	// Have the `KaseiCoinCrowdsaleDeployer` renounce its minter role.
         // YOUR CODE HERE!
         token.renounceMinter();
-
-        RegisterRealEstateNFT re_Defi_NFT = new RegisterRealEstateNFT  ();
-
-        realestate_Defi_NFT_address= address(re_Defi_NFT);
-
+        
     } 
 }
