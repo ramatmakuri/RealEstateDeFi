@@ -2,7 +2,10 @@ import os
 import json
 import requests
 from dotenv import load_dotenv
-load_dotenv()
+from pathlib import Path
+
+file_path = Path("./SAMPLE.env")
+load_dotenv(file_path)
 
 json_headers = {
     "Content-Type": "application/json",
@@ -14,7 +17,7 @@ file_headers = {
     "pinata_api_key": os.getenv("PINATA_API_KEY"),
     "pinata_secret_api_key": os.getenv("PINATA_SECRET_API_KEY"),
 }
-
+# Tell Pinata what kind of Hash to generate and cobnverts this information to Json
 def convert_data_to_json(content):
     data = {"pinataOptions": {"cidVersion": 1}, "pinataContent": content}
     return json.dumps(data)
