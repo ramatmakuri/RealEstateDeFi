@@ -1,0 +1,6 @@
+os
+json
+web3
+pathlib
+dotenv
+pinata
