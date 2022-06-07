@@ -4,7 +4,7 @@
 
 # RealEstateDeFi
 
-Blockchains are positioned to be the next technological advancement in real estate investment. The potential for digitizing real estate assests means that ownership of these assets can be fracionalized through ownership of tokens.
+Blockchains are positioned to be the next technological advancement in real estate investment. The potential for digitizing real estate assets means that ownership of these assets can be fracionalized through ownership of tokens.
 
 Suppose a seller has a property title wrapped in a unique LLC and would like to sell fractionalized shares of the LLC to Ethereum investors. These investors would then have the rights to collect income on the property.
 
