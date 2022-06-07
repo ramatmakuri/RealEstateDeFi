@@ -1,6 +1,2 @@
-os
-json
-web3
-pathlib
-dotenv
-pinata
+web3==5.17
+streamlit==1.5.1
