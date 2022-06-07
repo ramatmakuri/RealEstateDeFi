@@ -1,26 +1,27 @@
-![Contract-Data-Handshake-Block-Chain-Shaking-Hands-2853046](https://user-images.githubusercontent.com/95719899/171753766-f707c29b-98fd-4062-9b8f-b73347ce2dfe.jpg)
+![House-Mortgage-Key-Home-Real-Estate-House-Keys-2114455](https://user-images.githubusercontent.com/95719899/172493473-4e93e193-e595-44e1-b5f2-d58b2114c4e3.jpg)
 
 ---
 
 # RealEstateDeFi
-Decentralized Real Estate Financing
 
-LAUNCH APP: 
+Blockchains are positioned to be the next technological advancement in real estate investment. The potential for digitizing real estate assests means that ownership of these assets can be fracionalized through ownership of tokens.
+
+Suppose a seller has a property title wrapped in a unique LLC and would like to sell fractionalized shares of the LLC to Ethereum investors. These investors would then have the rights to collect income on the property.
+
+To make this transaction on the ERC 721 Network, the seller can use this application to convert their property into tokens and process the sale of them. 
 
 ---
 
 ## Purpose
-The purpose of this project is to create a dApp that demonstrates an ERC 721 smart contract framework for fractionalized real estate. 
-This is accomplished through listing a property as an NFT and hosting a crowd sale for a set number of tokens. 
- 
+
+This application is a smart contract Ethereum transaction tool which allows a real estate seller to tokenize and crowd sell properties.
  
  ---
  ## Installation Guide
 
-The app is deployed to a Streamlit interface, so to use the app, no installation is required. Simply launch the link at the top of the README.
 
-To run it from local computer, clone repo. From the Terminal, activate conda envirnoment; change directory to repo folder,
-and type `streamlit run streamlit.py`. This will launch a web browser with a local URL such as http://localhost:8501. *Note that you will need to install some libraries/dependencies if you do not already have them. You can do so by typing `pip install requirements.txt` into the terminal.* 
+To run the app from a local computer, clone repo. From the Terminal, activate conda envirnoment; change directory to StarterFile folder,
+and type `streamlit run appNew.py`. This will launch a web browser with a local URL such as http://localhost:8501. *Note that you will need to install some libraries/dependencies if you do not already have them.* 
 
 ---
 ## Approach
@@ -37,9 +38,24 @@ and type `streamlit run streamlit.py`. This will launch a web browser with a loc
 
 ---
 
-## Discussion
+## Results
 
-Blockchains are positioned to be the next technological advancement in real estate investment. The potential for digitizing real estate assests means that ownership of these assets can be fracionalized through ownership of tokens. 
+Functionalities of Real Estate Appraisal System
+
+![Screenshot 2022-06-07 151050](https://user-images.githubusercontent.com/95719899/172485787-0f96ed58-5ee3-4a0f-aaea-744ef19f13e7.jpg)
+
+Example of registering a property to the ethereum blockchain
+
+![Screenshot 2022-06-07 151409](https://user-images.githubusercontent.com/95719899/172485898-fa8b2d06-9c51-4160-afb6-56bf01c87305.jpg)
+
+Example of a transaction receipt
+
+![Screenshot 2022-06-07 151436](https://user-images.githubusercontent.com/95719899/172485948-7e29ec21-f50f-4334-b10f-60cf26e32e52.jpg)
+
+Example of a DeFi investment into a property
+
+![Screenshot 2022-06-07 152211](https://user-images.githubusercontent.com/95719899/172486206-26620aa7-6e11-4cf4-b3d3-3c342b3472a6.jpg)
+
 
 ---
 ## Contributors:
