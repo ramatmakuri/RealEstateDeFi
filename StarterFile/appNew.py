@@ -22,6 +22,8 @@ w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
 @st.cache(allow_output_mutation=True)
 
+# 1.1 Load NFT Contracts
+
 def load_nftcontract():
 
     # Load the contract ABI for NFT
@@ -38,6 +40,8 @@ def load_nftcontract():
     )
 
     return contract
+
+# 1.2 Load Token Contracts
 
 def load_tokencontract():
 
@@ -57,6 +61,8 @@ def load_tokencontract():
 # Load the contract
 contract = load_nftcontract()
 
+# 1.3 Load Crowdsale Contracts
+
 def load_crowdsale_contract():
     # Load the contract ABI for NFT
     with open(Path('./contracts/compiled/realEstateDefiCS_abi.json')) as f:
@@ -71,7 +77,7 @@ def load_crowdsale_contract():
     )
     return contractCS
 
-# Load the contract
+# Load the contracts
 contract = load_nftcontract()
 contractCS = load_crowdsale_contract()
 contractTK = load_tokencontract()
@@ -101,9 +107,11 @@ def pin_appraisal_report(report_content):
     json_report = convert_data_to_json(report_content)
     report_ipfs_hash = pin_json_to_ipfs(json_report)
     return report_ipfs_hash
-
-
-st.title("Real Estate Appraisal System")
+################################################################################
+### Code to register Real Estate
+################################################################################
+st.title("Real Estate Decentralized Financing System")
+st.markdown("---")
 page_names = ['Register RealEstate', 'Invest in RealEstate', 'Investment Metrics', 'Investors Corner']
 page = st.radio ('Select one:', page_names)
 
@@ -194,6 +202,10 @@ if page == 'Register RealEstate':
             else:
                 st.write("This artwork has no new appraisals")
 
+################################################################################################################
+### Code to invest in Real Estate - Where Investor can log in and purchase Tokens / Fractional owneship interest
+#################################################################################################################
+
 if page == 'Invest in RealEstate':
     st.title("Invest in Decentralized Real Estate Financing")
     st.markdown("---")
@@ -212,6 +224,10 @@ if page == 'Invest in RealEstate':
         st.write(dict(receipt))
         st.write("You can view the pinned metadata file with the following IPFS Gateway Link")
         st.markdown("---")
+
+################################################################################################################
+### Code for metrics that the Owner can look at to keep a tab on the crowdsale
+#################################################################################################################
 
 if page == 'Investment Metrics':
    st.title("Invest in Decentralized Real Estate Financing - Investment Metrics")
@@ -245,6 +261,11 @@ if page == 'Investment Metrics':
        st.write(contractCS.functions.token().call())
    if choice == "wallet":
        st.write(contractCS.functions.wallet().call()) 
+
+
+################################################################################################################
+### Code for Investors to trade amongst themselves and monitor their balances
+#################################################################################################################
 
 if page == 'Investors Corner':
    st.title("Invest in Decentralized Real Estate Financing - Investors Corner")
